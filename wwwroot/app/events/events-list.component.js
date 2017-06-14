@@ -11,10 +11,12 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var core_1 = require("@angular/core");
 var event_service_1 = require("./shared/event.service");
 var toastr_service_1 = require("../common/toastr.service");
+var router_1 = require("@angular/router");
 var EventListComponent = (function () {
-    function EventListComponent(eventService, toastr) {
+    function EventListComponent(eventService, toastr, route) {
         this.eventService = eventService;
         this.toastr = toastr;
+        this.route = route;
         this.eventObj = {
             id: 1,
             name: 'Angular Pie',
@@ -32,7 +34,9 @@ var EventListComponent = (function () {
     }
     //life cycle hook - this is called when the component is loaded 
     EventListComponent.prototype.ngOnInit = function () {
-        this.events = this.eventService.getEvents();
+        //this is not needed since it is resolved and available in route 
+        //this.eventService.getEvents().subscribe(events => { this.events = events })
+        this.events = this.route.snapshot.data['events'];
     };
     EventListComponent.prototype.handleEventClicked = function (data) {
         this.toastr.success(data);
@@ -44,7 +48,7 @@ EventListComponent = __decorate([
         //selector: 'events-list',
         templateUrl: 'app/events/events-list.component.html'
     }),
-    __metadata("design:paramtypes", [event_service_1.EventService, toastr_service_1.ToastrService])
+    __metadata("design:paramtypes", [event_service_1.EventService, toastr_service_1.ToastrService, router_1.ActivatedRoute])
 ], EventListComponent);
 exports.EventListComponent = EventListComponent;
 //# sourceMappingURL=events-list.component.js.map
