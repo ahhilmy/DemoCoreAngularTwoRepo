@@ -10,7 +10,9 @@ exports.appRoutes = [
     { path: 'events', component: events_list_component_1.EventListComponent, resolve: { events: event_list_resolver_service_1.EventListResolver } },
     { path: 'events/:id', component: event_details_component_1.EventDetailsComponent, canActivate: [event_route_activator_service_1.EventRouteActivator] },
     { path: '404', component: _404_component_1.Error404Component },
-    { path: '', redirectTo: '/events', pathMatch: 'full' }
+    { path: '', redirectTo: '/events', pathMatch: 'full' },
+    //this loads the user module loadChildren - path and module name... path will be the prefix of routes
+    { path: 'user', loadChildren: 'App/user/user.module#UserModule' }
 ];
 /*
 important note: angular route cannot differentiate between

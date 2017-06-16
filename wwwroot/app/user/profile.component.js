@@ -6,17 +6,15 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 var core_1 = require("@angular/core");
-var NavBarComponent = (function () {
-    function NavBarComponent() {
+var ProfileComponent = (function () {
+    function ProfileComponent() {
     }
-    return NavBarComponent;
+    return ProfileComponent;
 }());
-NavBarComponent = __decorate([
+ProfileComponent = __decorate([
     core_1.Component({
-        selector: 'nav-bar',
-        templateUrl: 'app/nav/navbar.component.html',
-        styles: ["\n        .nav.navbar-nav{font-size: 15px;}\n        #searchForm {margin-right: 100px;}\n        @media (max-width: 1200px){#searchForm {display: none;}}\n        li > a.active {color: #F97924 !important;}\n    "]
+        template: "\n    <h1>Edit Your Profile</h1>\n    <hr>\n    <div class=\"col-md-6\">\n      <h3>[Edit profile form will go here]</h3>\n      <br />\n      <br />\n      <button type=\"submit\" class=\"btn btn-primary\">Save</button>\n      <button type=\"button\" class=\"btn btn-default\">Cancel</button>\n    </div>\n  ",
     })
-], NavBarComponent);
-exports.NavBarComponent = NavBarComponent;
-//# sourceMappingURL=navbar.component.js.map
+], ProfileComponent);
+exports.ProfileComponent = ProfileComponent;
+//# sourceMappingURL=profile.component.js.map

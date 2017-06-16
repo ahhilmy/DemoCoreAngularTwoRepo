@@ -11,7 +11,9 @@ export const appRoutes: Routes = [
     { path: 'events', component: EventListComponent, resolve: { events: EventListResolver} },
     { path: 'events/:id', component: EventDetailsComponent, canActivate: [EventRouteActivator] },
     { path: '404', component: Error404Component },
-    { path: '', redirectTo: '/events', pathMatch: 'full' }
+    { path: '', redirectTo: '/events', pathMatch: 'full' },
+    //this loads the user module loadChildren - path and module name... path will be the prefix of routes
+    { path: 'user', loadChildren: 'App/user/user.module#UserModule' }
 ]
 
 /*
